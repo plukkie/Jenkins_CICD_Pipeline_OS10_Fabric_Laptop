@@ -54,7 +54,7 @@
 			"templates" : {
 				"leaf"	: { 
 					"name"  : "Dell EMC OS10 S5248F-10.5.4.4.193", 
-					"count" : 2,
+					"count" : 4,
 					"pos"   : { "x" : -50, "y" : 42 },
 					"mac" 	: { "base" : "aa:bb:cc:", "start" : 11 },
 					"vlti"	: { "count" : 4, "1st_adapter_number" : 6, "adapterstep" : 1,"port" : 0, "portstep" : 0 },
