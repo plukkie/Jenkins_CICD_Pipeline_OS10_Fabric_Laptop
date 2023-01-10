@@ -1,0 +1,131 @@
+{
+	"fabric" : {
+		"leaf" : {
+			"routerid" : "10.0.2.1",
+			"dhcpsource" : "192.168.0.1",
+			"vtepip" : "10.10.10.1",
+			"as" : 64625,
+			"nameprefix" : "OS10-LEAF-",
+			"lacp_pcs" : [ 10 ],
+			"vlti-Portchannel" : 100,
+			"btbiplink" : "192.168.168.0"
+		},
+		"spine" : {
+			"routerid" : "10.0.1.1",
+			"as" : 65001,
+			"nameprefix" : "OS10-SPINE-"
+		},
+		"common" : {
+			"slot_syntax"   : "1/1",
+			"interlinknet" : "192.168.1.0",
+			"loopback0net" : "",
+			"loopback1net" : "",
+			"loopback2net" : "",
+			"L3VRF"        : "Vrf1",
+			"L3VRFvlan"    : "60",
+			"intmgtvlan"   : "999",
+			"intmgtnet"    : "172.16.0.0",
+			"ipv4gw"       : "254",
+			"ipv4mask"     : "24",
+			"oobmgtstart"  : "10.10.10.11",
+			"bordersubnet" : "2.0.1.0",
+			"borderas"     : 65000,
+			"ntp"          : [ "10.204.11.135" ]
+		}
+	},
+	"gns3"	: {
+		"serverip"	: "10.10.10.202",
+		"serverport"	: "80",
+		"projecturi"	: "v2/projects",
+		"templatesuri"	: "v2/templates",
+		"nodescheck"	: "nodes",
+		"nodesstarturi"	: "start",
+		"nodesstopuri"	: "stop",
+		"prot"		: "http://",
+		"starttimeout"  : 1800,
+		"boottimer"	: 180,
+		"newprojectdevjson": {
+				    "name" : "OS10_Dev_Fabric",
+				    "auto_open" : true,
+				    "auto_close": false
+				  },
+		"nodesdata"	: {
+			"posshift"  : 150,
+			"templates" : {
+				"leaf"	: { 
+					"name"  : "Dell EMC OS10 S5248F-10.5.4.4.193", 
+					"count" : 2,
+					"pos"   : { "x" : -50, "y" : 42 },
+					"mac" 	: { "base" : "aa:bb:cc:", "start" : 11 },
+					"vlti"	: { "count" : 4, "1st_adapter_number" : 6, "adapterstep" : 1,"port" : 0, "portstep" : 0 },
+					"interlinks" : { "1st_adapter_number" : 1, "adapterstep" : 1, "port" : 0, "portstep" : 0 },
+					"borderlinks" : { "1st_adapter_number" : 3, "adapterstep" : 1, "port" : 0, "portstep" : 0 },
+					"mgtport" : { "adapter_number" : 0, "port_number" : 0 },
+					"hosts" : {
+						"name"  : "Dell EMC OS10 S5232F-10.5.4.4.193", 
+						"count" : 1,
+						"leaflinks" : { "1st_adapter_number" : 5, "adapterstep" : 1, "port" : 0, "portstep" : 0 },
+						"hostlinks" : { "1st_adapter_number" : 1, "adapterstep" : 1, "port" : 0, "portstep" : 0 },
+						"mgtport" : { "adapter_number" : 0, "port_number" : 0 },
+						"mac" : { "base" : "aa:bb:cc:", "start" : 41 }
+					}
+				},
+				"border" : {
+					"name"  : "Dell EMC OS10 S5212F-10.5.4.4.193", 
+					"count" : 1,
+					"pos"   : { "x" : -250, "y" : -200 },
+					"mac" 	: { "base" : "aa:bb:cc:", "start" : 31 },
+					"mgtport" : { "adapter_number" : 0, "port_number" : 0 },
+					"vlti"	: { "count" : 0, "1st_adapter_number" : 0, "adapterstep" : 1,"port" : 0, "portstep" : 0 },
+					"interlinks" : { "1st_adapter_number" : 3, "adapterstep" : 1, "port" : 0, "portstep" : 0 },
+					"borderlinks" : { "1st_adapter_number" : 8, "adapterstep" : 1, "port" : 0, "portstep" : 0 }
+				},
+				"spine" : {
+					"name"  : "Dell EMC OS10 S5232F-10.5.4.4.193",
+					"count" : 1,
+					"pos"   : { "x" : 100, "y" : -200 },
+					"mac" 	: { "base" : "aa:bb:cc:", "start" : 21 },
+					"vlti"	: { "count" : 0, "1st_adapter_number" : 8, "adapterstep" : 1,"port" : 0, "portstep" : 0 },
+					"interlinks" : { "1st_adapter_number" : 1, "adapterstep" : 1, "port" : 0, "portstep" : 0 },
+					"borderlinks" : { "1st_adapter_number" : 1, "adapterstep" : 1, "port" : 0, "portstep" : 0 },
+					"mgtport" : { "adapter_number" : 0, "port_number" : 0 }
+				},
+				"cloud" : {
+					"name"	: "Cloud",
+					"pos"   : { "x" : -500, "y" : -100 },
+					"port" : { "adapter_number" : 0, "port_number" : 0 },
+					"count" : ""
+				}
+			}
+		}
+	},
+	"awx"	: {
+		"serverip"	: "10.10.10.201",
+		"serverport"	: "30080",
+		"prot"		: "http://",
+		"projecturi"	: "api/v2/job_templates",
+		"jobtemplateid"	: "13",
+		"teststage_jobtemplate_name_test" : "Template OS10 DEV Fabric Day0-1 VALIDATION",
+		"teststage_jobtemplate_name_deploy" : "Template OS10 DEV Fabric Day0-1 CONFIG",
+		"prodstage_jobtemplate_name_test" : "",
+		"prodstage_jobtemplate_name_deploy" : "",
+		"launchsuffix"	: "launch",
+		"httpheaders"	: { "Authorization" : "Bearer Ey8BiQpWEhYD6X5UHWuWk6tACAIdbP" }
+	},
+	"ztp"	: {
+		"serverip"	      : "10.10.10.201",
+		"serverport"	      : "80",
+		"ztp_finished_dir"    : "tftpboot/ztp_finished",
+		"ztp_finished_suffix" : ".ztp.finished",
+		"prot"		      : "http://",
+		"dyn_http_contname"   : "ztdserver_ztd-httpd_1",
+                "dyn_http_contnameX"   : ""
+
+	},
+	"externals" : {
+		"ansible_playbook_repo" : { "url" : "https://github.com/plukkie/Ansible_OS10_EVPN_Fabric_Laptop.git", "inventoryfile" : "hosts" }
+
+	}
+}
+
+
