@@ -1,9 +1,9 @@
 {
 	"fabric" : {
 		"leaf" : {
-			"routerid" : "10.0.2.1",
+			"routerid" : "10.99.99.1",
 			"dhcpsource" : "192.168.0.1",
-			"vtepip" : "10.10.10.1",
+			"vtepip" : "10.20.30.1",
 			"as" : 64625,
 			"nameprefix" : "OS10-LEAF-",
 			"lacp_pcs" : [ 10 ],
@@ -11,7 +11,7 @@
 			"btbiplink" : "192.168.168.0"
 		},
 		"spine" : {
-			"routerid" : "10.0.1.1",
+			"routerid" : "10.199.199.1",
 			"as" : 65001,
 			"nameprefix" : "OS10-SPINE-"
 		},
