@@ -82,7 +82,7 @@
 				},
 				"spine" : {
 					"name"  : "Dell EMC OS10 S5232F-10.5.4.4.193",
-					"count" : 1,
+					"count" : 2,
 					"pos"   : { "x" : 100, "y" : -200 },
 					"mac" 	: { "base" : "aa:bb:cc:", "start" : 21 },
 					"vlti"	: { "count" : 0, "1st_adapter_number" : 8, "adapterstep" : 1,"port" : 0, "portstep" : 0 },
