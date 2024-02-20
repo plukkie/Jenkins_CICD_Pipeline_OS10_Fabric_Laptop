@@ -3,7 +3,7 @@ pipeline {
   agent any
 	
   environment {
-	  VENV_DIR = 'SONiC_CICD_venv'
+	  VENV_DIR = 'OS10_CICD_venv'
 	  PYVERSION = 'python3'
 	  PYBINPATH = 'bin'
   }
