@@ -78,7 +78,7 @@ def return_url ( settingsobject ):
                         print('There is a stopped fabric node. Will start node ' + nodename + ' in GNS3...')
                         starturl = checkurl + '/' + nodeid + '/' + s['nodesstarturi']
                         nodestarttuple = ( starturl, httpheaders )
-                        #print(nodestarttuple)
+                        print(nodestarttuple)
                         resp = request ( nodestarttuple, "post") 
                         time.sleep(1)
 
@@ -238,8 +238,6 @@ def request ( url, reqtype, jsondata={} ):
         #print(url[1])
         #print(jsondata)
         r = requests.put ( url[0], headers=url[1], json=jsondata )
-    elif reqtype.lower() == 'delete':
-        r = requests.delete ( url[0], headers=url[1], json=jsondata )
   
     statuscode = r.status_code
     if statuscode >= 400:
@@ -963,7 +961,7 @@ for arg in sys.argv:
 
 settings = readsettings ( settingsfile ) #Read settings to JSON object
 
-# GET URL to USE for API call
+# Request API call
 urltuple = return_url ( settings ) #Return required URL, headers if needed & other option data
 #print(urltuple)
 
@@ -976,65 +974,30 @@ response = request ( urltuple, "post") #Request API POST request
 if 'creategns3project' in sys.argv[1:]: #Add nodes to project in GNS3
     #print(response)
     if 'already exists' in response: #project was already created
-
-        del_project = settings['gns3']['delete_project']
         print(json.loads(response)['message'])
-
-        if del_project == True or del_project == 'true' or del_project == 'yes':
-           ## project will be DELETED
-           ## Then need to be created
-           print('Found switch "delete_project = true" in configfile.')
-           print('just a moment while deleting the project...')
-
-           resp = json.loads(request ( urltuple, "get" )) #Query project to find ID
-           for obj in resp:
-             if obj['name'] == urltuple[3]['name']:
-                print('Project ID : ' + obj['project_id'])
-                #response = json.dumps(obj)
-                projectid = obj['project_id']
-                s = settings['gns3']
-                url = s['prot']+s['serverip']+":"+s['serverport']+"/"+s['projecturi']+"/"+projectid
-                mylist = list(urltuple)
-                mylist[0] = url
-                del_urltuple = tuple(mylist)
-                response = request ( del_urltuple, "DELETE" ) #Request API POST request
-                print(response)
-                time.sleep(2)
-                print('Creating new GNS3 project...')
-                response = request ( urltuple, "post") #Request API POST request
-                ## Project has been created
-                projectid = json.loads(response)['project_id']
-                print('Project ' + projectid + ' created.')
-
-        else:
-           ## Configsetting delete_project = no/false, Project will NOT be DELETED
-           ## In this fase the VMs could have status STOP or START
-           print('If you want to rebuild, please delete the project from GNS3.')
-           print('Then restart.')
-           print('For now, pipeline will continuou with current project...')
+        print('If you want to rebuild, please delete the project from GNS3.')
+        print('Then restart.')
        
-           resp = json.loads(request ( urltuple, "get" )) #Query project to find ID
-           #print(resp)
-           #print(urltuple)
-           for obj in resp:
-             if obj['name'] == urltuple[3]['name']:
+        resp = json.loads(request ( urltuple, "get" )) #Query project to find ID
+        #print(resp)
+        #print(urltuple)
+        for obj in resp:
+            if obj['name'] == urltuple[3]['name']:
                 print('Project ID : ' + obj['project_id'])
                 #response = json.dumps(obj)
 
-           print('proceed = noztp_check')
-           sys.exit() #Activate when done testing
-
+        print('proceed = noztp_check')
+        sys.exit() #Activate when done testing
     else:
-        ## Project has been created
         projectid = json.loads(response)['project_id']
         print('Project ' + projectid + ' created.')
 
     time.sleep(1)
-    print('Building GNS3 design...')
     result = provisiongns3project(json.loads(response))
     print(result)
     sys.exit()
 
+print(urltuple)
 if 'gns' in urltuple[2]['runtype'] and 'start' in urltuple[0]: #Nodes are started, start checking
 
     if 'noztp_check' in sys.argv:
@@ -1075,6 +1038,7 @@ if 'gns' in urltuple[2]['runtype'] and 'start' in urltuple[0]: #Nodes are starte
             print('Sleep ' + str(st) + 'secs...')
             print()
             time.sleep(st)
+
 
 
 
