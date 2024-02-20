@@ -43,6 +43,7 @@
 		"nodesstopuri"	: "stop",
 		"prot"		: "http://",
 		"starttimeout"  : 1800,
+		"delete_project" : true,
 		"boottimer"	: 180,
 		"newprojectdevjson": {
 				    "name" : "OS10_Dev_Fabric",
@@ -110,7 +111,7 @@
 		"prodstage_jobtemplate_name_test" : "",
 		"prodstage_jobtemplate_name_deploy" : "",
 		"launchsuffix"	: "launch",
-		"httpheaders"	: { "Authorization" : "Bearer Qm5mkUKBjhr9PIVf3NK48EH4Bu1UQe" }
+		"httpheaders"	: { "Authorization" : "Bearer z2HdqPyimOqNOaeXraAS8ETZyAiOpg" }
 	},
 	"ztp"	: {
 		"serverip"	      : "10.10.10.201",
