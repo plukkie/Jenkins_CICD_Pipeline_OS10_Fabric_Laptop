@@ -34,7 +34,7 @@
 		}
 	},
 	"gns3"	: {
-		"serverip"	: "10.10.10.202",
+		"serverip"	: "192.168.1.1",
 		"serverport"	: "80",
 		"projecturi"	: "v2/projects",
 		"templatesuri"	: "v2/templates",
@@ -43,13 +43,13 @@
 		"nodesstopuri"	: "stop",
 		"prot"		: "http://",
 		"starttimeout"  : 1800,
-		"delete_project" : true,
 		"boottimer"	: 180,
 		"newprojectdevjson": {
 				    "name" : "OS10_Dev_Fabric",
 				    "auto_open" : true,
 				    "auto_close": false
 				  },
+		"delete_project" : true,
 		"nodesdata"	: {
 			"posshift"  : 150,
 			"templates" : {
@@ -101,7 +101,7 @@
 		}
 	},
 	"awx"	: {
-		"serverip"	: "10.10.10.201",
+		"serverip"	: "192.168.1.1",
 		"serverport"	: "30080",
 		"prot"		: "http://",
 		"projecturi"	: "api/v2/job_templates",
@@ -114,7 +114,7 @@
 		"httpheaders"	: { "Authorization" : "Bearer z2HdqPyimOqNOaeXraAS8ETZyAiOpg" }
 	},
 	"ztp"	: {
-		"serverip"	      : "10.10.10.201",
+		"serverip"	      : "192.168.1.1",
 		"serverport"	      : "80",
 		"ztp_finished_dir"    : "tftpboot/ztp_finished",
 		"ztp_finished_suffix" : ".ztp.finished",
