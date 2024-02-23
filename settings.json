@@ -5,7 +5,7 @@
 			"dhcpsource" : "192.168.0.1",
 			"vtepip" : "10.20.30.1",
 			"as" : 64625,
-			"nameprefix" : "OS10-LEAF-",
+			"nameprefix" : "os10-LEAF-",
 			"lacp_pcs" : [ 10 ],
 			"vlti-Portchannel" : 100,
 			"btbiplink" : "192.168.168.0"
@@ -13,7 +13,7 @@
 		"spine" : {
 			"routerid" : "10.199.199.1",
 			"as" : 65001,
-			"nameprefix" : "OS10-SPINE-"
+			"nameprefix" : "os10-SPINE-"
 		},
 		"common" : {
 			"slot_syntax"   : "1/1",
