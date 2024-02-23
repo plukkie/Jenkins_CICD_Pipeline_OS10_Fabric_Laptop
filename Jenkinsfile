@@ -78,7 +78,7 @@ pipeline {
 				println "Feedback from python script: ${env.LS}"
 				if (env.LS == 'proceed = True') {
 					echo 'Dev network succesfully started. Proceed to Stage Dev: Configure Dev network.'
-					echo 'This can take ~15 minutes.....'
+					echo 'This can take ~25 minutes.....'
                                         sleep( time: 10 )
                                 }
 				else {
