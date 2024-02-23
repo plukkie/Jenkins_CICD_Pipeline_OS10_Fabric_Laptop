@@ -94,7 +94,7 @@
 				"cloud" : {
 					"name"	: "Cloud",
 					"pos"   : { "x" : -500, "y" : -100 },
-					"port" : { "adapter_number" : 0, "port_number" : 0 },
+					"port" : { "adapter_number" : 1, "port_number" : 0 },
 					"count" : ""
 				}
 			}
