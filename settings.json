@@ -34,7 +34,7 @@
 		}
 	},
 	"gns3"	: {
-		"serverip"	: "192.168.1.22",
+		"serverip"	: "192.168.1.151",
 		"serverport"	: "80",
 		"projecturi"	: "v2/projects",
 		"templatesuri"	: "v2/templates",
