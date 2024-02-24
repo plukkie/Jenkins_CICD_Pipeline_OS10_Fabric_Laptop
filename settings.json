@@ -117,7 +117,7 @@
 		"serverip"	      : "192.168.1.1",
 		"serverport"	      : "80",
 		"ztp_finished_dir"    : "tftpboot/ztp_finished",
-		"ztp_finished_suffix" : ".ztp.finished",
+		"ztp_finished_suffix" : ".ztp_finished",
 		"prot"		      : "http://",
 		"dyn_http_contname"   : "ztdserver_ztd-httpd_1",
                 "dyn_http_contnameX"   : ""
