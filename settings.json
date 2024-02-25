@@ -42,7 +42,7 @@
 		"nodesstarturi"	: "start",
 		"nodesstopuri"	: "stop",
 		"prot"		: "http://",
-		"starttimeout"  : 2200,
+		"starttimeout"  : 2500,
 		"boottimer"	: 180,
 		"newprojectdevjson": {
 				    "name" : "OS10_Dev_Fabric",
