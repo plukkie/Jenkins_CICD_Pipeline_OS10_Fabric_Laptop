@@ -111,7 +111,7 @@
 		"prodstage_jobtemplate_name_test" : "",
 		"prodstage_jobtemplate_name_deploy" : "",
 		"launchsuffix"	: "launch",
-		"httpheaders"	: { "Authorization" : "Bearer z2HdqPyimOqNOaeXraAS8ETZyAiOpg" }
+		"httpheaders"	: { "Authorization" : "Bearer 78xFCmJ1BICCZ6FWCvCfQCDg0zjR6W" }
 	},
 	"ztp"	: {
 		"serverip"	      : "192.168.1.1",
